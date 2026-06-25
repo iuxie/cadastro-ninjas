@@ -15,7 +15,11 @@ public class NinjaModel {
     private Long id;
     private String nome, email;
     private int idade;
-    private List<MissaoModel> missoes;
+
+    // @ManyToOne -> Um Ninja tem uma única missão
+    @ManyToOne
+    @JoinColumn(name = "missao_id") // FK (Foreign Key)
+    private MissaoModel missao;
 
     public NinjaModel() {}
 
@@ -52,4 +56,13 @@ public class NinjaModel {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
+    public MissaoModel getMissao() {
+        return missao;
+    }
+
+    public void setMissao(MissaoModel missao) {
+        this.missao = missao;
+    }
+
 }
