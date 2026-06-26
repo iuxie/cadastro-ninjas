@@ -1,6 +1,6 @@
-package dev.iurexavier.CadastroDeNinjas.missoes;
+package dev.iurexavier.CadastroDeNinjas.missao.service.model;
 
-import dev.iurexavier.CadastroDeNinjas.ninjas.NinjaModel;
+import dev.iurexavier.CadastroDeNinjas.ninjas.service.model.NinjaModel;
 import jakarta.persistence.*;
 import lombok.*;
 

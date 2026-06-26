@@ -1,10 +1,8 @@
-package dev.iurexavier.CadastroDeNinjas.ninjas;
+package dev.iurexavier.CadastroDeNinjas.ninjas.service.model;
 
-import dev.iurexavier.CadastroDeNinjas.missoes.MissaoModel;
+import dev.iurexavier.CadastroDeNinjas.missao.service.model.MissaoModel;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.List;
 
 // JPA - Java Persistence API
 // Entity transforma uma classe em uma entidade do DB
