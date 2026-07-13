@@ -1,6 +1,7 @@
 package dev.iurexavier.CadastroDeNinjas.ninjas.controller;
 
 import dev.iurexavier.CadastroDeNinjas.ninjas.service.NinjaService;
+import dev.iurexavier.CadastroDeNinjas.ninjas.service.model.NinjaModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,8 +36,8 @@ public class NinjaController {
 
     // Procurar Ninja por ID
     @GetMapping("/{id}")
-    public String procuraNinjaPorId() {
-        return "Ninja procurado por ID";
+    public NinjaModel listaNinjaPorId(@PathVariable Long id) {
+        return service.listaNinjaPorId(id);
     }
 
     // Atualizar dados do Ninja
