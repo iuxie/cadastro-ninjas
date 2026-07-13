@@ -1,5 +1,6 @@
 package dev.iurexavier.CadastroDeNinjas.missao.service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.iurexavier.CadastroDeNinjas.ninjas.service.model.NinjaModel;
 import jakarta.persistence.*;
 import lombok.*;
@@ -26,6 +27,7 @@ public class MissaoModel {
 
     // @OneToMany -> Uma missão pode ter n Ninjas
     @OneToMany(mappedBy = "missao")
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 
 }

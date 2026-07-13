@@ -1,10 +1,20 @@
 package dev.iurexavier.CadastroDeNinjas.ninjas.controller;
 
+import dev.iurexavier.CadastroDeNinjas.ninjas.service.NinjaService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ninjas")
 public class NinjaController {
+
+    private NinjaService service;
+
+    public NinjaController(NinjaService service) {
+        this.service = service;
+    }
 
     @GetMapping("/boasvindas")
     public String boasVindas() {
@@ -13,14 +23,14 @@ public class NinjaController {
 
     // Criar Ninja
     @PostMapping
-    public String criarNinja() {
+    public String criaNinja() {
         return "Ninja criado!";
     }
 
     // Listar todos os Ninjas
     @GetMapping
-    public String todosOsNinjas() {
-        return "Todos os Ninjas";
+    public List listaNinjas() {
+        return service.listaNinjas();
     }
 
     // Procurar Ninja por ID
@@ -31,7 +41,7 @@ public class NinjaController {
 
     // Atualizar dados do Ninja
     @PatchMapping
-    public String atualizaDadosNinja() {
+    public String atualizaNinja() {
         return "Dados do Ninja alterados";
     }
 
