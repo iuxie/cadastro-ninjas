@@ -2,7 +2,6 @@ package dev.iurexavier.CadastroDeNinjas.ninjas.controller;
 
 import dev.iurexavier.CadastroDeNinjas.ninjas.service.NinjaService;
 import dev.iurexavier.CadastroDeNinjas.ninjas.service.model.NinjaModel;
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,31 +23,31 @@ public class NinjaController {
 
     // Criar Ninja
     @PostMapping
-    public String criaNinja() {
-        return "Ninja criado!";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+        return service.criarNinja(ninja);
     }
 
     // Listar todos os Ninjas
     @GetMapping
-    public List listaNinjas() {
-        return service.listaNinjas();
+    public List listarNinja() {
+        return service.listarNinjas();
     }
 
     // Procurar Ninja por ID
     @GetMapping("/{id}")
-    public NinjaModel listaNinjaPorId(@PathVariable Long id) {
-        return service.listaNinjaPorId(id);
+    public NinjaModel listarNinjaPorId(@PathVariable Long id) {
+        return service.listarNinjaPorId(id);
     }
 
     // Atualizar dados do Ninja
     @PatchMapping
-    public String atualizaNinja() {
+    public String atualizarNinja() {
         return "Dados do Ninja alterados";
     }
 
     // Deletar Ninja
     @DeleteMapping
-    public String deletaNinja() {
+    public String deletarNinja() {
         return "Ninja deletado";
     }
 
