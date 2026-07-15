@@ -27,4 +27,9 @@ public class MissaoService {
         return missaoModelOptional.orElse(null);
     }
 
+    // Criar Missão
+    public MissaoModel criarMissao(MissaoModel missao) {
+        return repository.save(missao);
+    }
+
 }

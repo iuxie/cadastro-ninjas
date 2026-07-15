@@ -30,8 +30,8 @@ public class MissaoController {
 
     // POST - Mandar uma requisicao para criar missões
     @PostMapping
-    public String criarMissao() {
-        return "Missão criada com sucesso!";
+    public MissaoModel criarMissao(@RequestBody MissaoModel missao) {
+        return service.criarMissao(missao);
     }
 
     // PUT - Mandar uma requisicao para atualizar missões
