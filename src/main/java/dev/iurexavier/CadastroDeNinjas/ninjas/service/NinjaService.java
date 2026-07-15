@@ -37,4 +37,15 @@ public class NinjaService {
         repository.deleteById(id);
     }
 
+    // Atualizar Ninja
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado) {
+        if (repository.existsById(id)) {
+            ninjaAtualizado.setId(id);
+            repository.save(ninjaAtualizado);
+        }
+        return null;
+    }
+
+    // TODO: Implementar método PATCH
+
 }
