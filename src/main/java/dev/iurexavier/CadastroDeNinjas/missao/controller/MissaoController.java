@@ -1,32 +1,48 @@
 package dev.iurexavier.CadastroDeNinjas.missao.controller;
 
+import dev.iurexavier.CadastroDeNinjas.missao.service.MissaoService;
+import dev.iurexavier.CadastroDeNinjas.missao.service.model.MissaoModel;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/missoes")
 public class MissaoController {
 
+    private final MissaoService service;
+
+    public MissaoController(MissaoService service) {
+        this.service = service;
+    }
+
     // GET - Mandar uma requisicao para buscar missões
     @GetMapping
-    public String listaMissoes() {
-        return "Missões listadas com sucesso!";
+    public List<MissaoModel> listarMissoes() {
+        return service.listarMissoes();
+    }
+
+    // GET - Buscar missões por ID
+    @GetMapping("/{id}")
+    public String procurarMissaoPorId(@PathVariable Long id) {
+        return "Missao pelo ID";
     }
 
     // POST - Mandar uma requisicao para criar missões
     @PostMapping
-    public String criaMissao() {
+    public String criarMissao() {
         return "Missão criada com sucesso!";
     }
 
     // PUT - Mandar uma requisicao para atualizar missões
     @PutMapping
-    public String atualizaMissao() {
+    public String atualizarMissao() {
         return "Missão atualizada com sucesso!";
     }
 
     // DELETE - Mandar uma requisicao para deletar missões
     @DeleteMapping
-    public String deletaMissao() {
+    public String deletarMissao() {
         return "Missão deletada com sucesso!";
     }
 
