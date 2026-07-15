@@ -24,8 +24,8 @@ public class MissaoController {
 
     // GET - Buscar missões por ID
     @GetMapping("/{id}")
-    public String procurarMissaoPorId(@PathVariable Long id) {
-        return "Missao pelo ID";
+    public MissaoModel procurarMissaoPorId(@PathVariable Long id) {
+        return service.procurarMissaoPorId(id);
     }
 
     // POST - Mandar uma requisicao para criar missões
