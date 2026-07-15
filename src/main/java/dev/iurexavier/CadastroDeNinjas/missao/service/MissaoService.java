@@ -32,4 +32,9 @@ public class MissaoService {
         return repository.save(missao);
     }
 
+    // Deletar Missão
+    public void deletarMissao(Long id) {
+        repository.deleteById(id);
+    }
+
 }
