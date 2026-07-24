@@ -43,6 +43,16 @@ public class MissaoService {
         return mapper.map(missaoModel);
     }
 
+    public MissaoDTO atualizarMissao(Long id, MissaoDTO missaoDTO) {
+        Optional<MissaoModel> missaoModel = repository.findById(id);
+        if (missaoModel.isPresent()) {
+            MissaoModel missaoAtualizada = mapper.map(missaoDTO);
+            missaoAtualizada.setId(id);
+            return mapper.map(repository.save(missaoAtualizada));
+        }
+        return null;
+    }
+
     // Deletar Missão
     public void deletarMissao(Long id) {
         repository.deleteById(id);
