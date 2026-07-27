@@ -2,7 +2,6 @@ package dev.iurexavier.CadastroDeNinjas.ninjas.controller;
 
 import dev.iurexavier.CadastroDeNinjas.ninjas.dto.NinjaDTO;
 import dev.iurexavier.CadastroDeNinjas.ninjas.service.NinjaService;
-import dev.iurexavier.CadastroDeNinjas.ninjas.service.model.NinjaModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -65,14 +64,14 @@ public class NinjaController {
 
     // Deletar Ninja
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletarNinja(@PathVariable Long id) {
+    public ResponseEntity<Void> deletarNinja(@PathVariable Long id) {
         if (service.listarNinjaPorId(id) != null) {
             service.deletarNinjaPorId(id);
-            return ResponseEntity.ok()
-                    .body("Ninja deletado com sucesso!");
+            return ResponseEntity.noContent()
+                    .build();
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body("Ninja não encontrado.");
+        return ResponseEntity.notFound()
+                .build();
     }
 
 }

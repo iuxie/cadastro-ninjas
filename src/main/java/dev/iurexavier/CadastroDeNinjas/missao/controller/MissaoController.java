@@ -69,14 +69,14 @@ public class MissaoController {
 
     // DELETE - Mandar uma requisicao para deletar missões
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletarMissao(@PathVariable Long id) {
+    public ResponseEntity<Void> deletarMissao(@PathVariable Long id) {
         if (service.procurarMissaoPorId(id) != null) {
             service.deletarMissao(id);
-            return ResponseEntity.ok()
-                    .body("Missão deletada com sucesso!");
+            return ResponseEntity.noContent()
+                    .build();
         }
-       return ResponseEntity.status(HttpStatus.NOT_FOUND)
-               .body("Missão não encontrada.");
+       return ResponseEntity.notFound()
+               .build();
     }
 
 }
