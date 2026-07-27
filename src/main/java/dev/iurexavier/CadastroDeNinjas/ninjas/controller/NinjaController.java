@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/ninjas")
 public class NinjaController {
 
-    private NinjaService service;
+    private final NinjaService service;
 
     public NinjaController(NinjaService service) {
         this.service = service;
