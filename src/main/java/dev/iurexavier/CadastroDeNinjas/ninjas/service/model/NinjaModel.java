@@ -12,6 +12,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "missao")
 public class NinjaModel {
 
     @Id
