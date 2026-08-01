@@ -2,11 +2,11 @@ package dev.iurexavier.CadastroDeNinjas.ninjas.controller;
 
 import dev.iurexavier.CadastroDeNinjas.ninjas.dto.NinjaDTO;
 import dev.iurexavier.CadastroDeNinjas.ninjas.service.NinjaService;
+import dev.iurexavier.CadastroDeNinjas.tools.ApiErrosGlobais;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -20,6 +20,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/ninjas")
 @Tag(name = "Ninjas", description = "Endpoints para o gerenciamento de Ninjas")
+@ApiErrosGlobais
 public class NinjaController {
 
     private final NinjaService service;
@@ -35,8 +36,7 @@ public class NinjaController {
                     content = @Content(
                             mediaType = "application/json",
                             schema = @Schema(implementation = NinjaDTO.class)
-                    )),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content)
+                    ))
     })
     public ResponseEntity<NinjaDTO> criarNinja(@RequestBody NinjaDTO ninja) {
         NinjaDTO novoNinja = service.criarNinja(ninja);
@@ -94,7 +94,6 @@ public class NinjaController {
                             mediaType = "application/json",
                             schema = @Schema(implementation = NinjaDTO.class)
                     )),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = @Content),
             @ApiResponse(responseCode = "404", description = "Not Found", content = @Content)
     })
     public ResponseEntity<NinjaDTO> atualizarNinja(
