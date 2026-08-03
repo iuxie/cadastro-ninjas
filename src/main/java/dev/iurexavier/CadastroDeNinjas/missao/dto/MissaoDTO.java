@@ -1,6 +1,6 @@
 package dev.iurexavier.CadastroDeNinjas.missao.dto;
 
-import dev.iurexavier.CadastroDeNinjas.ninjas.service.model.NinjaModel;
+import dev.iurexavier.CadastroDeNinjas.ninjas.dto.NinjaDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +25,6 @@ public class MissaoDTO {
     private String dificuldade;
 
     @Schema(description = "Lista de Ninjas responsáveis pela Missão")
-    private List<NinjaModel> ninjas;
+    private List<NinjaDTO> ninjas;
 
 }

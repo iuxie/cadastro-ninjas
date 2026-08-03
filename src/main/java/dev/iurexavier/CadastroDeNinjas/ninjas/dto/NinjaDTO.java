@@ -1,6 +1,7 @@
 package dev.iurexavier.CadastroDeNinjas.ninjas.dto;
 
-import dev.iurexavier.CadastroDeNinjas.missao.service.model.MissaoModel;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import dev.iurexavier.CadastroDeNinjas.missao.dto.MissaoDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +30,7 @@ public class NinjaDTO {
     private String rank;
 
     @Schema(name = "missao_id", description = "ID da missão", example = "12")
-    private MissaoModel missao;
+    @JsonIgnoreProperties("ninjas")
+    private MissaoDTO missao;
 
 }
