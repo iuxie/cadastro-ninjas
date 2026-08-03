@@ -71,8 +71,7 @@ public class NinjaController {
                             mediaType = "application/json",
                             schema = @Schema(implementation = NinjaDTO.class)
                     )),
-            @ApiResponse(responseCode = "404", description = "Not Found",
-                    content = @Content)
+            @ApiResponse(responseCode = "404", description = "Not Found", content = @Content)
     })
     public ResponseEntity<NinjaDTO> listarNinjaPorId(
             @Parameter(description = "ID do Ninja", example = "155", required = true)
